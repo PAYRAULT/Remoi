@@ -27,7 +27,7 @@ Les clignotants & Les feux & Le klaxon \\
 \hline
 La gestion des si\`eges & Le syst\`eme de navigation & Le syst\`eme audio \\
 \hline
-la pression des pneus & les vitres & ... \\
+La pression des pneus & La gestion des portes et vitres & ... \\
 \hline
 \end{tabular}
 \caption{Syst\`eme logiciel dans une voiture}
@@ -54,8 +54,8 @@ L'introduction du logiciel a permis d'avoir des voitures plus s\^urs et moins po
 
 
 \section {Principes de la s\'ecurit\'e informatique}
- \medskip
- {\Huge L}a s\'ecurit\'e informatique est construite sur 3 piliers (CIA triad).
+\medskip
+{\Huge L}a s\'ecurit\'e informatique est construite sur 3 piliers (CIA triad).
 
 \FloatBarrier
 \begin{figure}
@@ -65,25 +65,14 @@ L'introduction du logiciel a permis d'avoir des voitures plus s\^urs et moins po
     \label{fig:CIA}
 \end{figure}
 \FloatBarrier
- 
- 
+  
 \begin{itemize}
-\item La \emph{confidentialit\'e}. L'objectif est de prot\'eger ou de minimiser les acc\'es non authoris\'es aux donn\'ees et/ou ressources sensibles (ie lecture).
-\item L'\emph{int\'egrit\'e}. L'objectif L'objectif est de prot\'eger ou de minimiser les alt\'erations non authoris\'ees des donn\'ees et/ou ressources sensibles (ie \'ecriture)  
-\item La \emph{disponibilit\'e}> L'objectif des de maintenir le syst\`eme op\'erationel pour rendre le service aux l'utilisateurs.  
+\item La \emph{confidentialit\'e}. L'objectif est de prot\'eger ou de minimiser les acc\'es non authoris\'es aux donn\'ees et/ou ressources sensibles (ie lecture). La technique utilis\'ee pour garantir la confidentialit\'e est le chiffrement. Les donn\'ees sont chiffr\'ees avec une clef connue que par les parties ayant l'autorisation de lire les donn\'ees. 
+\item L'\emph{int\'egrit\'e}. L'objectif est de prot\'eger ou de minimiser les alt\'erations non authoris\'ees des donn\'ees et/ou ressources sensibles (ie \'ecriture). La technique utilis\'ee pour garantir l'int\'egrit\'e est la signature des donn\'ees. Cette signature peut \^etre effectu\'ee en utilisant un algorithme de hash (fonction non inversible) ou une signature digitale (n\'ecissant une cl\'e de chifrement).  
+\item La \emph{disponibilit\'e}. L'objectif est de maintenir le syst\`eme op\'erationel pour rendre le service aux l'utilisateurs. Diff\'erentes techniques peuvent \^etre utilis\'ees pour garantir le syst\'eme en op\'eration. Elles sont regroup\'ees sous le nom de \emph{tol\'erance aux fautes}.  
 \end{itemize}
 
-\subsection {Protection contre la perte de confidentialit\'e}
-Bla bla bla.....
-
-\subsection {Protection contre la perte d'int\'egrit\'e}
-Bla bla bla.....
-
-
-\subsection {Protection contre la perte de disponibilit\'e}
-Bla bla bla.....
-
-Dans le reste de la th\`ese non nous concentreons sur la disponibilit\'e des syst\`emes embarq\'es. 
+Dans le reste de la th\`ese non nous concentrerons sur la disponibilit\'e des syst\`emes embarq\'es. 
 
 
 \section {Le risque cybers\'ecurit\'e pour l'automobile}
