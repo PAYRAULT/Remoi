@@ -1,0 +1,72 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {Images/} }
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{Thesis Title}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Chapter \thechapter}
+\fancyfoot[CO,RE]{Author Name}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+
+\usepackage[style=authoryear,sorting=ynt]{biblatex}
+\addbibresource{references.bib}
+
+
+\title{C'est ma th\`ese}
+\author{Maxime Ayrault}
+\date{29 F\'evrier 2064}
+
+\begin{document}
+
+\input{page_garde}
+
+\input{abstract}
+
+
+\chapter*{Dedicace}
+A ma Maman ador\'ee
+
+\chapter*{Remerciements}
+Je remercie Jean-Do pour ces conseils avis\'es.....
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+
+\chapter{Introduction}
+\input{sections/1_introduction}
+
+\chapter{La s\'ecurit\'e dans le monde de l'automobile}
+\input{Sections/2_securite}
+
+\chapter{L'architecture calculateur}
+\input{Sections/3_architecture}
+
+\chapter{Expression de la r\'esilience}
+\input{Sections/4_resilience}
+
+\chapter{Conclusion}
+\input{Sections/5_conclusion}
+
+\appendix
+\chapter{Appendix Title}
+\input{Sections/A1_appendice}
+
+
+\printbibliography
+
+\end{document}
