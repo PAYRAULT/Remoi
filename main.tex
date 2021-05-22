@@ -1,12 +1,26 @@
 \documentclass[12pt]{report}
-\usepackage[utf8]{inputenc}
+
+\usepackage[latin1]{inputenc}
+\usepackage{lmodern}
+\usepackage{fancyhdr,fancybox}
+\usepackage{latexsym}
+\usepackage{amsfonts,amssymb}
+\usepackage{pifont}
+\usepackage{psfrag}
+\usepackage[french]{babel}
+
+
 \usepackage{graphicx}
 \graphicspath{ {Images/} }
 
+
 \usepackage{caption}
 \usepackage{subcaption}
+%\usepackage{subfigure}
+
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
 \usepackage{fancyhdr}
+
 \pagestyle{fancy}
 \fancyhead{}
 \fancyhead[RO,LE]{Thesis Title}
@@ -34,8 +48,8 @@
 \input{abstract}
 
 
-\chapter*{Dedicace}
-A ma Maman ador\'ee
+\chapter*{D\'edicace}
+\`A ma Maman ador\'ee...
 
 \chapter*{Remerciements}
 Je remercie Jean-Do pour ces conseils avis\'es.....
@@ -47,23 +61,21 @@ Je remercie Jean-Do pour ces conseils avis\'es.....
 \listoftables
 
 
-\chapter{Introduction}
+%% Input le glossaire
+\newpage
+\input{GLOSSAIRE}\thispagestyle{empty}
+
 \input{sections/1_introduction}
 
-\chapter{La s\'ecurit\'e dans le monde de l'automobile}
 \input{Sections/2_securite}
 
-\chapter{L'architecture calculateur}
 \input{Sections/3_architecture}
 
-\chapter{Expression de la r\'esilience}
 \input{Sections/4_resilience}
 
-\chapter{Conclusion}
 \input{Sections/5_conclusion}
 
 \appendix
-\chapter{Appendix Title}
 \input{Sections/A1_appendice}
 
 
