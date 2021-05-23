@@ -34,7 +34,7 @@
 
 
 \usepackage[style=authoryear,sorting=ynt]{biblatex}
-\addbibresource{references.bib}
+\addbibresource{./references.bib}
 
 
 \title{C'est ma th\`ese}
@@ -75,10 +75,12 @@ Je remercie Jean-Do pour ces conseils avis\'es.....
 
 \input{Sections/5_conclusion}
 
+\pagestyle{empty}
+\printbibliography
+\newpage
+
 \appendix
 \input{Sections/A1_appendice}
 
-
-\printbibliography
 
 \end{document}
