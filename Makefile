@@ -21,14 +21,14 @@ MASTER_PDF = $(MASTER).pdf
 all: $(MASTER_PDF)
 .PHONY: $(MASTER_PDF) Chap2.pdf 
 
-$(MAIN): $(MASTER_TEX) $(LITERATURE) $(TEX_FILES) $(GFX_FILES)
+$(MASTER_PDF): $(MASTER_TEX) $(LITERATURE) $(TEX_FILES) $(GFX_FILES)
 	$(latexmk) -pdf $(MASTER_TEX)
 
-chap2.pdf: 
-	$(latexmk) -pdf chap2.tex
+chap2.pdf: chap2.tex Sections/2_securite.tex
+	$(latexmk) -pdf chap2.tex 
 
-chap3.pdf: 
-	$(latexmk) -pdf chap3.tex
+chap3.pdf: chap3.tex Sections/3_architecture.tex
+	$(latexmk) -pdf chap3.tex 
 
 clean:
 	$(latexmk) -C
