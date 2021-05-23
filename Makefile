@@ -16,13 +16,19 @@ SRC =
 TEX_FILES = $(wildcard Sections/*.tex glossaire.tex glossaire.tex page_garde.tex abstract.tex)
 GFX_FILES = $(wildcard Images/*)
 
-PDF = $(MASTER).pdf
+MASTER_PDF = $(MASTER).pdf
 
-all: $(PDF)
-.PHONY: $(PDF)
+all: $(MASTER_PDF)
+.PHONY: $(MASTER_PDF) Chap2.pdf 
 
-$(PDF): $(MASTER_TEX) $(LITERATURE) $(TEX_FILES) $(GFX_FILES)
+$(MAIN): $(MASTER_TEX) $(LITERATURE) $(TEX_FILES) $(GFX_FILES)
 	$(latexmk) -pdf $(MASTER_TEX)
+
+chap2.pdf: 
+	$(latexmk) -pdf chap2.tex
+
+chap3.pdf: 
+	$(latexmk) -pdf chap3.tex
 
 clean:
 	$(latexmk) -C
@@ -34,10 +40,10 @@ final: $(PDF)
 mrproper: clean
 	rm -f *~
 
-ps: $(PDF)
-	pdftops $(PDF)
+ps: $(MASTER_PDF)
+	pdftops $(MASTER_PDF)
 
-pdf: $(PDF)
+pdf: $(MASTER_PDF)
 
 ispell:
 	for tex in $(TEX_FILES);	\
