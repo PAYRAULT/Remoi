@@ -27,7 +27,7 @@ $(MASTER_PDF): $(MASTER_TEX) $(LITERATURE) $(TEX_FILES) $(GFX_FILES)
 chap2.pdf: chap2.tex Sections/2_securite.tex
 	$(latexmk) -pdf chap2.tex 
 
-chap3.pdf: chap3.tex Sections/3_architecture.tex
+chap3.pdf: chap3.tex Sections/3_game_theory.tex
 	$(latexmk) -pdf chap3.tex 
 
 clean:

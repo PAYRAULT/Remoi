@@ -52,6 +52,33 @@ Introduire Automotive Open System Architecture (AUTOSAR). Une solution pour r\'e
 
 L'introduction du logiciel a permis d'avoir des voitures plus s\^urs et moins polluantes mais a \'egalement introduit une nouvelle menace; la \emph{s\'ecurit\'e informatique des voitures}. 
 
+\section {Architecture voiture}
+
+\begin{tbd}
+Commencer a pr\'esenter les diff\'erentes couches logiciel.\\
+
+the following four stacks could become the basis for upcoming generations of cars in five to ten years:
+\begin{itemize}
+
+\item \emph{Time-driven stack}. In this domain, the controller is directly connected to a sensor or actuator while the systems have to support hard real-time requirements and low latency times; resource scheduling is time based. This stack includes systems that reach the highest Automotive Safety Integrity Level classes, such as the classical Automotive Open System Architecture (AUTOSAR) domain.
+\item \emph{Event- and time-driven stack}. This hybrid stack combines high-performance safety applications, for example, by supporting ADAS and HAD capability. Applications and peripherals are separated by the operating system, while applications are scheduled on a time base. Inside an application, scheduling of resources can be based on time or priority. The operating environment ensures that safety-critical applications run on isolated containers with clear separation from other applications within the car. A current example is adaptive AUTOSAR.
+\item \emph{Event-driven stack}.This stack centers on the infotainment system, which is not safety critical. The applications are clearly separated from the peripherals, and resources are scheduled using best-effort or event-based scheduling. The stack contains visible and highly used functions that allow the user to interact with the vehicle, such as Android, Automotive Grade Linux, GENIVI, and QNX.
+\item \emph{Cloud-based (off-board) stack}. The final stack covers and coordinates access to car data and functions from outside the car. The stack is responsible for communication, as well as safety and security checks of applications (authentication), and it establishes a defined car interface, including remote diagnostics.
+\end{itemize}
+
+\url{https://www.mckinsey.com/industries/automotive-and-assembly/our-insights/rethinking-car-software-and-electronics-architecture}
+\end{tbd}
+
+
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{architecture}
+    \caption{Architecture g\'en\'erique}
+    \label{fig:archi}
+\end{figure}
+\url{https://www2.deloitte.com/us/en/insights/focus/future-of-mobility/pure-play-software-in-automotive-industry.html}
+
+
 
 \section {Principes de la s\'ecurit\'e informatique}
 \medskip
@@ -79,7 +106,7 @@ Les principales techniques utilis\'ees pour garantir ces 3 propri\'et\'es sont:
 \setlength\itemsep{1em}
 \item \emph{Chiffrement (Encryption)}: La transformation de l'informations originale (appel\'e clair) \`a l'aide d'une cl\'e de chiffrement, de telle sorte que les informations transform\'ees (appel\'e chiffr\'e) ne puissent \^etre interpr\'et\'ees que par un autre utilisateur ayant connaissance de la cl\'e de d\'echiffrement (qui peut, dans certains cas, \^etre identique \`a la cl\'e de chiffrement). Pour \^etre en s\'ecurit\'e, un algorithme de chiffrement doit rendre extr\^emement difficile pour quelqu'un de d\'eterminer tout ou partie des informations clairs sans connaissance de la cl\'e de d\'echiffrement ou faiblesse de l'algorithme de chiffrement.
 
-\item \emph{Authentification (Authentication}: La d\'etermination de l'identit\'e qu'un sujet (personne, logiciel ou \'equipement). Cette d\'etermination peut \^etre effectu\'ee par plusieurs moyens. Il est g\'en\'eralement bas\'e sur une combinaison de quelque chose que la personne conna\^it (Something you know) comme un mot de passe ou un code PIN, quelque chose le sujet poss\`ede (Something you have) comme une carte \`a puce contenant des cl\'es secr\`etes un t\'el\'ephone pour recevoir un code, un passeport, ou quelque chose la personne est (Something you are) comme une empreinte digitale.
+\item \emph{Authentification (Authentication)}: La d\'etermination de l'identit\'e qu'un sujet (personne, logiciel ou \'equipement). Cette d\'etermination peut \^etre effectu\'ee par plusieurs moyens. Il est g\'en\'eralement bas\'e sur une combinaison de quelque chose que la personne conna\^it (Something you know) comme un mot de passe ou un code PIN, quelque chose le sujet poss\`ede (Something you have) comme une carte \`a puce contenant des cl\'es secr\`etes un t\'el\'ephone pour recevoir un code, un passeport, ou quelque chose la personne est (Something you are) comme une empreinte digitale.
 
 \item \emph{Contr\^oles d'acc\`es (Access Control)}: Ensemble de r\`egles et politiques de s\'ecurit\'e qui limitent l'acc\`es aux informations aux sujets (personnes et/ou syst\`emes) ayant un \emph{besoin d'en connaitre}. Ce besoin d'en connaitre est d\'etermin\'e suite \`a l'authentification correcte du sujet, de par son identit\'e ou r\^ole. Un ensemble de r\`egles est pr\'e-d\'efinie par le gestionnaire de la s\'ecurit\'e informatique en se basant sur la politique de s\'ecurit\'e.
 
@@ -110,7 +137,7 @@ Authentification & \checkmark & \checkmark &  \\
 \hline
 Contr\^oles d'acc\`es & \checkmark & \checkmark &  \\
 \hline
-Signaturee &  & \checkmark &  \\
+Signature &  & \checkmark &  \\
 \hline
 Responsabilit\'e & \checkmark & \checkmark &  \\
 \hline
