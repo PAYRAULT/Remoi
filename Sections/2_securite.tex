@@ -11,7 +11,7 @@
 \section {La r\'evolution logicielle}
 \medskip
 {\Huge L}e logiciel embarqu\'e est une des innovations cl\'e dans le monde automobile.
-D'apr\`es l'article de Robert Charette (\cite{Cha09}) paru dans IEEE Spectrum, la premi\`ere voiture embarquant un logiciel \'etait la Oldsmobile Toronado de General Motors en 1977. La Toronado avait une unit\'e de contr\^ole \'electronique (ECU) qui g\'erait la synchronisation de l'allumage des bougies (spark timing). En 1978, General Motors proposait, en option sur ses Cadillacs, un ordinateur de bord qui pouvait afficher la vitesse, le niveau du r\'eservoir d'essence, les informations sur l'\'etat du v\'ehicule. Ce logiciel s'ex\'ecutait sur une version modifi\'ee du processeur Motorola 6802 et faisait 50.000 lignes de code. Depuis, de plus en plus de fonctions ont \'et\'e r\'ealis\'ees par du logiciel. Afin de limiter le nombre de c\^ables dans une voiture, les capteurs ont \'et\'e d\'ecentralis\'es et connect\'es \`a un r\'eseau interne (r\'eseau CAN). Le logiciel a \'egalement permis de cr\'eer de nouvelles fonctions pour les voitures. \\
+D'apr\`es l'article de Robert Charette (\cite{Cha2009}) paru dans IEEE Spectrum, la premi\`ere voiture embarquant un logiciel \'etait la Oldsmobile Toronado de General Motors en 1977. La Toronado avait une unit\'e de contr\^ole \'electronique (ECU) qui g\'erait la synchronisation de l'allumage des bougies (spark timing). En 1978, General Motors proposait, en option sur ses Cadillacs, un ordinateur de bord qui pouvait afficher la vitesse, le niveau du r\'eservoir d'essence, les informations sur l'\'etat du v\'ehicule. Ce logiciel s'ex\'ecutait sur une version modifi\'ee du processeur Motorola 6802 et faisait 50.000 lignes de code. Depuis, de plus en plus de fonctions ont \'et\'e r\'ealis\'ees par du logiciel. Afin de limiter le nombre de c\^ables dans une voiture, les capteurs ont \'et\'e d\'ecentralis\'es et connect\'es \`a un r\'eseau interne (r\'eseau CAN). Le logiciel a \'egalement permis de cr\'eer de nouvelles fonctions pour les voitures. \\
 Une voiture actuelle est maintenant devenue une plate-forme logiciel sur roues. Une voiture grand public contient entre 30 et 50 unit\'es de contr\^ole \'electronique effectuant la gestion de multiples syst\`emes (voir \ref{tab:soft}).
 
 \FloatBarrier
@@ -89,7 +89,7 @@ Bla bla bla
 \begin{itemize}
 \setlength\itemsep{1em}
 \item La \emph{confidentialit\'e}. L'objectif consiste \'a \'eviter la divulgation d'informations sensibles et/ou de prot\'eger les acc\`es non authoris\'es ressources sensibles. Autrement dit, la confidentialit\'e implique la protection des donn\'ees (resp. ressources), en donnant acc\`es \`a ceux qui sont autoris\'es \`a les lire (resp. \`a les utiliser) tout en interdisant aux autres d'apprendre quoi que ce soit sur son contenu (ou son existence).  
-\item L'\emph{int\'egrit\'e}. L'objectif est de prot\'eger ou de minimiser les alt\'erations non authoris\'ees des donn\'ees et/ou ressources sensibles. Autrement dit, l'int\'egrit\'e implique de pr\'eserver le contenu des donn\'ees et de d\'etecter si une donn\'ees ou une ressource a \'et\'e modifi\'ee depuis sa derni\'ere \'ecriture par une personne authoris\'ee.  
+\item L'\emph{int\'egrit\'e}. L'objectif est de prot\'eger ou de minimiser les modifications non authoris\'ees de donn\'ees et/ou ressources sensibles. Autrement dit, l'int\'egrit\'e implique de pr\'eserver le contenu des donn\'ees et de d\'etecter si une donn\'ee ou une ressource a \'et\'e alt\'er\'ee depuis sa derni\'ere \'ecriture par une personne authoris\'ee.  
 \item La \emph{disponibilit\'e}. L'objectif est de maintenir le syst\`eme op\'erationel pour rendre le service aux l'utilisateurs.  
 \end{itemize}
 
@@ -117,8 +117,6 @@ Les principales techniques utilis\'ees pour garantir ces 3 propri\'et\'es sont:
 \item \emph{Responsabilit\'e (Accountability)}: La capacit\'e de rendre le sujet responsable de ces actions. Ceci est r\'ealis\'e en s'appuyant sur des journaux d'audit (audit log). Une fois le sujet correctement authentifi\'e, toutes ces actions sont enregistr\'ees sous forme d'\'ev\'enements dans un journal d'audit. En cas d'investigation ou de fa\c con p\'eriodique, le gestionnaire de la s\'ecurit\'e informatique peut r\'ealiser un audit des journaux pour identifier la source potentielle d'une attaque.
 
 \item \emph{Sensibilisation \`a la s\'ecurit\'e (Security awareness)}: La principale source de risque pour une organisation ne provient pas de faiblesse dans la technologie des \'equipements mais d'actions (ou d'inaction) de la part des utilisateurs du syst\`eme. Afin de limiter ce risque, il est n\'ecessaire de former les utilisateur aux diif\'erents risques informatiques et aux bonnes pratiques pour assurer le niveau de s\'ecurit\'e requis. 
-
-
 
 \item \emph{S\'ecurit\'e physique (physical security)}: Mise en place de barri\`eres physiques pour limiter l'acc\`es aux ressources sensibles. Ces barrières comprennent sont mutiples comme le gardiennage, la vid\'eo-surveillance, les serrures sur les armoires et les portes, les chambres fortes, l'utilisation de matériaux insonorisants, ou m\^eme la construction d'\'equipement renforc\'e (tempest) afin que les signaux \'electromagn\'etiques ne puissent pas entrer ou sortir.
 
@@ -156,7 +154,6 @@ Tol\'erance aux fautes & & & \checkmark \\
 \FloatBarrier
 
 
-
 Dans le reste de la th\`ese, nous concentrerons sur la disponibilit\'e des syst\`emes embarqu\'es. 
 
 
@@ -165,17 +162,20 @@ Dans le reste de la th\`ese, nous concentrerons sur la disponibilit\'e des syst\
  {\Huge L}'ajout de logiciels et de connectivit\'e....
 
 
-\begin{tbd}
-\url{https://www.nytimes.com/2015/09/27/business/complex-car-software-becomes-the-weak-spot-under-the-hood.html}
-Fear of Hacking
-Andy Greenberg steered a 2014 white Jeep Cherokee down a highway in St. Louis, cruising along at 70 miles per hour. Miles away, two local hackers, Charlie Miller and Chris Valasek, sat on a leather couch at Mr. Miller's house, laptops open, ready to wreak havoc.
+3 niveaux d'attaques:
+\begin{itemize}
+\setlength\itemsep{1em}
+\item \emph{Attaques physiques}. 
+\begin{itemize}
+\item Attaque via la prise diagnostique de la voiture. L'objectif est de pouvoir modifier les caract\'eristiques de la voiture et/ou de rajouter des options sur la voiture. Les logiciels d'une voiture sont hautement configurables. Un m\^eme logiciel est install\'e sur plusieurs gammes de v\'ehicules d'un constructeur. La diff\'erenciation entre les deux mod\`eles s'effectue par le param\'trage du logiciel. Si un attaquant \`a la possibilit\'e de modifier ces param\`etres, il peut activer des fonctions optionnelles de la voiture ou modifier les caract\'eristiques moteur du v\'ehicule.
+\item Attaque via la prise USB de la voiture. L'objectif est de pouvoir cr\'eer un point d'entr\'ee pour une attaque courte ou longue port'ee sur le v\'ehicule. La prise USB peut \^etre connect\'ee sur un \'equipement radio qui permet d'\'etendre la port\'ee de l'attaque.
+\end{itemize}
 
-As Mr. Greenberg sped along, both hands on the wheel, his ride began to go awry. First, the air-conditioning began blasting. Then an image of the hackers in tracksuits appeared on the digital display screen. Rap music began blaring at full volume, and Mr. Greenberg could not adjust the sound. The windshield wipers started and cleaning fluid sprayed, obstructing his view. Finally, the engine quit.
-Mr. Greenberg was on a highway with no shoulder. A big rig blew past, blaring its horn.
 
-"I'm going to pull over," Mr. Greenberg said. " Because I have PTSD."
+\item \emph{Attaque courte port\'ee} L'objectif est de pouvoir prendre le contr\^ole du v\'ehicule, d'envoyer de fausses informations ou de bloquer les communicatiosn aux v\'ehilcules aux alentours. De plus en plus de voitures ont un syst\`eme d'ouverture de portes et de d\'emarrage sans cl\'e.Par exemple, votre voiture est gar\'ee devant votre maison et les cl\'es sont sur le petit d'entr\'ee.  Un attaquqant peut ins\'erer un \'equipement radio entre la cl\'e et la voiture (attaque par relais). Un c\^ot\'e est proche de la voiture, lautre c\^ot\'e est connect\'e \`a une antenne scannant les fr\'equences radio de la cl\'e. Ceci permet d'ouvrir et/ou de d'emarrer la voiture m\^eme quand les cl\'es du v\'ehicule sont hors de port\'ee de la voiture. Une fois que l'antenne a accroch\'e la fr\'equence de la cl\'e, elle relaye son signal sur l'\'equipement proche du v\'ehicule. La voiture a ainsi l'impression que le propri\'etaire est proche et ouvre les portes et autorise la d\'emarrage. Le v\'ehicule peut \^etre vol\'e sans effraction (voir \url{https://www.youtube.com/watch?v=_cua7BFX-Qk} pour un video d'attaque relais). Un autre exemple, consiste \`a brouiller le signal pour la fermeture centralis\'ee d'un v\'ehicule. Le conducteur appuie sur le bouton de fermeture centralis\'ee de sa cl\'e, il a le sentiment que sa voiture est correctement ferm\'ee. Mais si le signal est brouill\'e, la voiture est ouverte et un attaquant peut facilement ouvrir un porte pour voler des affaires dans la voiture.
+ 
 
-The episode was in fact a stunt orchestrated by the hackers and Mr. Greenberg, a writer for Wired magazine, to demonstrate the Jeep's very real vulnerabilities. The article appeared on July 21.
+\item \emph{Attaque longue port\'ee}. L'objectif est de prendre le contr\^ole \`a distance d'un v\'ehicule. Un des fameux exemple de ce type d'attaque est la prise de contr\^ole d'une Jeep Cherokee par 2 attaquants; Andy Greenberg conduisait sa voiture sur l'autoroute vers Saint-Louis, roulant \` 70 mph. 2 hackers Charlie Miller et Chris Valasek sont install\'es dans leur canap\'e avec leur laptop ouvert. Dans un premier temps, la climatisation de la voiture c'est affol'ee, puis, une image des 2 hackers est apparue sur l'\'ecran de la voiture, la radio a chang\'e de station et le volume a fortement augment\'e, Mr Greenberg ne pouvait pas contr\^oler le volume de la radio ni la station. Ensuite la voiture s'est arr\^et\'ee toute seule. (voir \cite{Mil2015} pour le d\'etail de l'attaque)
 
-Days later, Fiat Chrysler, the maker of Jeep, announced a recall of 1.4 million vehicles to fix the flaws the hackers had identified - the first known recall intended to address a possible hacking threat.
-\end{tbd}
+\end{itemize}
+
