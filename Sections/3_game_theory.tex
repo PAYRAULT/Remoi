@@ -36,7 +36,7 @@ Le comportement du r\'eseau est le suivant; si les 2 personnes choisissent la st
 Un jeu peut \^etre mod\'elis\'e par un triplet $<N, S, u>$ avec:
 \begin{itemize}
 \item N repr\'esente les joueurs. $N = \{1,2,\ldots,n\}$ est un ensemble de cardinal $n$ (nombre de joueurs dans le jeu). 
-\item $S$ repr\'esente l'ensemble des combinaisons de strat\'egies possibles pour l'ensemble des joueurs $S: S_1 \times S_2 \times \ldots \times S_n$ avec $S_i$ l'ensembles des strat\'egies possibles pour le joueur $i$. Tous les joueurs n'ont pas n'ecessairement les m\^eme strat\'egies et certaines combinaisons de strat\'egies peuvent \^etre impossibles. 
+\item $S$ repr\'esente l'ensemble des combinaisons de strat\'egies possibles pour l'ensemble des joueurs $S: S_1 \times S_2 \times \ldots \times S_n$ avec $S_i$ l'ensembles des strat\'egies possibles pour le joueur $i$. Tous les joueurs n'ont pas n\'ecessairement les m\^eme strat\'egies et certaines combinaisons de strat\'egies peuvent \^etre impossibles. 
 \item $u$ repr\'esente la fonction de $u: S \to \R^n$ qui associe \`a chaque combinaison de strat\'egie une valeur d'utili\'e avec pour chaque $u_i$\ :
   \begin{itemize}
   \item une valeur n\'egative repr\'esentant une perte pour le joueur $i$
@@ -45,9 +45,8 @@ Un jeu peut \^etre mod\'elis\'e par un triplet $<N, S, u>$ avec:
 \end{itemize}
 \end{defn}
 
-
-Il est plus commode de repr\'esenter la fonction d'utilit\'e pour le joueur $i$ comme $u(S_i, S_{-i})$, avec 
-$S_{-i} = (s_1, s_2, \ldots, s_{i-1}, s_{i+1}, \ldots, s_n)$.
+Il est plus commode de repr\'esenter la fonction d'utilit\'e pour le joueur $i$ comme $u(s_i, s_{-i})$, avec 
+$s_{-i} = (s_1, s_2, \ldots, s_{i-1}, s_{i+1}, \ldots, s_n)$ qui repr\'esente la strat\'egie jou\'ee par tous les autres joueurs et de noter $u_i$ la i-\`eme composante de la fonction d'utilit\'e.
 \\
 
 Pour notre exemple, nous avons:
@@ -57,19 +56,54 @@ Pour notre exemple, nous avons:
 \item la fonction utilit\'e peut \^etre repr\'esent\'ee par la matrice suivante\ :
 \end{itemize} 
 
-
 \begin{center} 
 \begin{tabular}{|c||c|c|}
 \hline 
 \diagbox{$Joueur_1$}{$Joueur_2$}  & $C$ & $D$ \\ 
 \hline \hline
-$C$ & (2,2) & (6,0) \\ 
+$C$ & (-2,-2) & (-6,0) \\ 
 \hline 
-$D$ & (0,6) & (4,4) \\ 
+$D$ & (0,-6) & (-4,-4) \\ 
 \hline 
 \end{tabular}
 \end{center}
 
 
+\begin{defn}
+Une strat\'egie $s^{*}_{i}$ \emph{domine strictement} (strictly dominates) la strat\'egie $s_i$ ssi\ :
+$$
+\forall s_{-i} \in S_{-i}, u_i(s^{*}_{i}, s_{-i}) > u_i(s_{i}, s_{-i}) 
+$$
+\end{defn}
 
-Bla bla bla
+Quelque soit ce la strat\'egie choisie que les autres joueurs, la strat\'egie $s^{*}_{i}$ est le meilleur choix pour le joueur $i$. Comme le joueur $i$ est rationel, il ne va jamais jouer une strat\'egie domin\'ee $s_i$. 
+
+\begin{defn}
+Une strat\'egie $s^{*}_{i}$ \emph{domine faiblement} (weakly dominates) la strat\'egie $s_i$ ssi\ :
+$$
+\forall s_{-i} \in S_{-i}, u_i(s^{*}_{i}, s_{-i}) \geq u_i(s_{i}, s_{-i}) 
+$$
+et
+$$
+\exists s_{-i} \in S_{-i}, u_i(s^{*}_{i}, s_{-i}) > u_i(s_{i}, s_{-i})
+$$
+\end{defn}
+
+Quelque soit ce la strat\'egie choisie que les autres joueurs, la strat\'egie $s^{*}_{i}$ est au moins aussi bonne que la strat\'egie $s_i$ pour le joueur $i$. 
+
+
+Il est maintenant possible d'\'etendre ces d\'efinitions sur l'ensemble des strat\'egies possibles pour le joueur $i$.
+
+\begin{defn}
+Une strat\'egie $s^{d}_{i}$ est \emph{strictement dominante} (resp. \emph{faiblement dominante}) pour le joueur $i$ ssi $s^{d}_{i}$ domine strictement (resp. domine faiblement) toutes les autres strat\'egie pour le joueur $i$.
+\end{defn}
+
+Pour notre exemple, pour le joueur 1, la strat\'egie $D$ domine strictement la strat\'egie $C$. En effet, on a $S_{-1} = \{C, D\}$. pour $s_{-1} = {C}, u_1(D, C) > u_1(C, C)$ et pour $s_{-1} = {D}, u_1(D, D) > u_1(C, D)$. En fait, la strat\'egie $D$ est \'egalement la strat\'egie strictement dominante pour le joueur 1.
+
+Comme le joueur $i$ est rationnel, et qu'il existe une strat\'egie strictement dominante, alors le joueur $i$ ne va pas jouer une autre strat\'egie.
+
+\begin{defn}
+Un \emph{profil de strat\'egie} (strategy profile) $s^{d} = (s^d_1, s^d_2, ldots, s^d_n)$ est un \emph{\'equilibre strictement dominant} ssi $s^d_i$ est une strat\'egie dominante pour chaque joueur $i$.
+\end{defn}
+
+
