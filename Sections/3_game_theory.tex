@@ -30,19 +30,30 @@ Ce comportement peut \^etre mod\'elis\'e en th\'eorie des jeux.  Imaginons, deux
 Le comportement du r\'eseau est le suivant; si les 2 personnes choisissent la strat\'egie \emph{C}, chaque paquet sera retard\'e de 2ms. Si les 2 personnes choisissent la strat\'egie \emph{D}, chaque paquet sera retard\'e de 4ms. Si une des personnes choisit l'action \emph{C} et l'autre l'action \emph{D}, le premier voit ses paquets retard\'es de 6ms et le second voit ses paquets re\c{c}us sans retard. Bien s\^ur, chaque personne est rationnel et cherche \'a augmenter son d\'ebit, c'est \`a dire dans notre exmple, \`a minimiser le retard de ses paquets.
 
 
+
+
 \begin{defn}
-Un jeux peut \^etre mod\'elis\'e par un triplet $<N, S, u>$ avec:
+Un jeu peut \^etre mod\'elis\'e par un triplet $<N, S, u>$ avec:
 \begin{itemize}
 \item N repr\'esente les joueurs. $N = \{1,2,\ldots,n\}$ est un ensemble de cardinal $n$ (nombre de joueurs dans le jeu). 
-\item S repr\'esente l'ensemble des strat\'egies possibles pour l'ensemble des joueurs.
+\item $S$ repr\'esente l'ensemble des combinaisons de strat\'egies possibles pour l'ensemble des joueurs $S: S_1 \times S_2 \times \ldots \times S_n$ avec $S_i$ l'ensembles des strat\'egies possibles pour le joueur $i$. Tous les joueurs n'ont pas n'ecessairement les m\^eme strat\'egies et certaines combinaisons de strat\'egies peuvent \^etre impossibles. 
+\item $u$ repr\'esente la fonction de $u: S \to \R^n$ qui associe \`a chaque combinaison de strat\'egie une valeur d'utili\'e avec pour chaque $u_i$\ :
+  \begin{itemize}
+  \item une valeur n\'egative repr\'esentant une perte pour le joueur $i$
+  \item une valeur positive repr\'esentant un gain pour le joueur $i$
+  \end{itemize} 
 \end{itemize}
 \end{defn}
 
 
+Il est plus commode de repr\'esenter la fonction d'utilit\'e pour le joueur $i$ comme $u(S_i, S_{-i})$, avec 
+$S_{-i} = (s_1, s_2, \ldots, s_{i-1}, s_{i+1}, \ldots, s_n)$.
+\\
+
 Pour notre exemple, nous avons:
 \begin{itemize}
 \item 2 joueurs, $N = \{1,2\}$
-\item les strat\'egies possibles pour les 2 joueurs sont identiques $s_1 = s_2 = \{C,D\}$. Et l'ensemble des strat\'egies est d\'efini comme $S=\{(C,C),(D,C),(C,D),(D,D)\}$
+\item les strat\'egies possibles pour les 2 joueurs sont identiques $S_1 = S_2 = \{C,D\}$. Et l'ensemble des combinaisons de strat\'egies possibles est d\'efini comme $S=\{(C,C),(D,C),(C,D),(D,D)\}$
 \item la fonction utilit\'e peut \^etre repr\'esent\'ee par la matrice suivante\ :
 \end{itemize} 
 
