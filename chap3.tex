@@ -9,6 +9,8 @@
 \usepackage{psfrag}
 \usepackage[french]{babel}
 \usepackage{placeins}
+\usepackage{amsmath,amsthm}
+\usepackage{diagbox}
 
 \usepackage{graphicx}
 \graphicspath{ {Images/} }
@@ -31,12 +33,16 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{tbd}{Todo list}
+
 
 \usepackage[style=authoryear,sorting=ynt]{biblatex}
 \addbibresource{./references.bib}
-
-
-\newtheorem{tbd}{Todo list}
 
 
 \title{C'est ma th\`ese}
