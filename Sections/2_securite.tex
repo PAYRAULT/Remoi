@@ -5,7 +5,7 @@
 \begin{minipage}[b]{8cm}
 {\it This work was presented in part at the conference of one-legged deaf-mutes in Quiberon in April 1994.}
 \end{minipage}
-\begin{flushright} Maxime Ayrault \end{flushright}
+\begin{flushright} Remoi \end{flushright}
 \vskip 2cm
 
 \section {The software revolution}
@@ -35,7 +35,7 @@ Wheel pressure & management of the doors and windows & ... \\
 \FloatBarrier
 
 
-In 2009, Alfred Katzenbach, Director of Information Technology Management at Daimler announced that the radio and navigation management system of a S-class Mercedes-Bens contains over 20 millions line of code and the car embeds nearly as many ECUs as an Airbus A380 (excluding the in-flight entertainment system) (\cite{Cha09}). Software in a car has an exponential growth in size and complexity. In just 10 years, the software volume in a car expands by a factor 10, to arrive at around 150 million of lines of code. A model S from Tesla is equipped with a 17' tactical display based on a Linux kernel which controls almost every driver functions. In fact, there is only 2 manual buttons not management by software in the car, the blinker and the glove's compartment.
+In 2009, Alfred Katzenbach, Director of Information Technology Management at Daimler announced that the radio and navigation management system of a S-class Mercedes-Bens contains over 20 millions line of code and the car embeds nearly as many ECUs as an Airbus A380 (excluding the in-flight entertainment system) (\cite{Cha2009}). Software in a car has an exponential growth in size and complexity. In just 10 years, the software volume in a car expands by a factor 10, to arrive at around 150 million of lines of code. A model S from Tesla is equipped with a 17' tactical display based on a Linux kernel which controls almost every driver functions. In fact, there is only 2 manual buttons not management by software in the car, the blinker and the glove's compartment.
 
 
 A side effect of this revolution is the complexity and the richness of the functions proposed to the driver. It is frequent to have the driver manual of a car with over 500 pages to explain all the driver functions. On the other side, we estimate that an average driver uses not more than 20\% of those functions. Some automotive manufacturers are asking them the question of a limitation of the software functions proposed in a car. For example, is it really necessary to have the ceiling light of a car going out gradually?\\
@@ -47,23 +47,48 @@ Aujourd'hui, le co\^ut du logiciel et de l'\'electronique repr\'esente entre 35 
 
 
 \begin{tbd}
-Introduire Automotive Open System Architecture (AUTOSAR). Une solution pour r\'eduire le co\^ut du logiciel en augmentant l'interop\'erabilit\'e entre les constructeurs.
+    Introduire la standardisation avec:
+    Automotive Open System Architecture (AUTOSAR). Une solution pour r\'eduire le co\^ut du logiciel en augmentant l'interop\'erabilit\'e entre les constructeurs.
+    CEI 27272 pour le developpement logiciel
 \end{tbd}
 
+AUTomotive Open System Architecture (AUTOSAR) was founded in 2003, with the goal to develop an architecture, independent of the underlying ECU hardware that the automotive industry can use to reduce the increasing complexity of software in modern vehicles (\cite{AUTOSAR}). It is the de facto standard for the automotive software today. AUTOSAR makes an abstract layer of the underlying hardware, so that the applications written on top of AUTOSAR are independent from the actual supplier of the ECU hardware. The AUTOSAR standard documentation guides companies and the automotive industry in designing and implementing software in their vehicles. Besides the Software architecture and the Standardized application interfaces (APIs), AUTOSAR provides a Software development methodology. By adopting the AUTOSAR standard, companies can develop software solutions that are independent of the hardware they are running on, and this software can run on any ECU in the vehicle.  
 
-L'introduction du logiciel a permis d'avoir des voitures plus s\^urs et moins polluantes mais a \'egalement introduit une nouvelle menace; la \emph{s\'ecurit\'e informatique des voitures}. 
 
-\section {Architecture voiture}
+AUTOSAR is a three-layered architecture (\cite{AUTOSAR_archi}): 
+\begin{itemize}
+    \item the \emph{application layer} provided by the software company implementing the specific functions of the ECU. This is the highest layer which contains the software components (SWCs). AUTOSAR application (e.g., ABS, Cruise Control $\ldots$) consists of several SWCs, which provide the core functions. An AUTOSAR SWC is an atomic piece of software that cannot be divided and is located a single ECU. 
+    \item the \emph{run-time environment (RTE) layer}. The RTE layer provides the standardized interface between the SWCs and the basic software layer. Because of this layer, SWCs can be used on different ECUs, independent of the ECU vendor.
+    \item the \emph{basic software (BSW) layer} that consists of four sub-layers; the \emph{services layer} providing operating system functions like communication services, memory services, diagnostic services, $\ldots$. The layer also contains the main security mechanisms. The \emph{ECU abstraction layer} makes higher software layers independent of ECU hardware layout. It provides an application programming interface to devices regardless of their location (internal/external of the microcontroller). The \emph{Microcontroller abstraction layer}. It contains drivers for direct access to the upderlying microcontroller and internal parameters. It makes higher layers independent of the microcontroller. The \emph{complex drivers layer} which provides the ability to integrate special-purpose functions such as drivers for devices that are not specified with the AUTOSAR standard. This layer accesses directly the microcontroller. 
+\end{itemize}
+
+Each of the sublayers offers different services as shown in \ref{fig:AUTOSAR_archi}. 
+
+\FloatBarrier
+\begin{figure}
+    \includegraphics[width=\textwidth]{AUTOSAR_architecture}
+    \caption{AUTOSAR layered architecture}
+    \label{fig:AUTOSAR_archi}
+\end{figure}
+\FloatBarrier
+
+The AUTOSAR standard defines security mechanisms that can be used by the software modules implemented into the vehicle system. It further specifies interfaces and procedures to provide Secure On-Board Communication, and the exact implementation is left for the OEMs to decide on. OEMs choose the cryptographic algorithms and encryption techniques which they want to implement and use in the vehicle system.
+
+
+Introduction of software in the car permits to have safer and less polluting cars but it has open the door at two new risks the \emph{safety risk} and the \emph{cyber-security threat}. 
+
+
+\section {Modern car architecture}
 
 \begin{tbd}
 Commencer a pr\'esenter les diff\'erentes couches logiciel.\\
 
-the following four stacks could become the basis for upcoming generations of cars in five to ten years:
+The following four stacks could become the basis for upcoming generations of cars in five to ten years:
 \begin{itemize}
 
 \item \emph{Time-driven stack}. In this domain, the controller is directly connected to a sensor or actuator while the systems have to support hard real-time requirements and low latency times; resource scheduling is time based. This stack includes systems that reach the highest Automotive Safety Integrity Level classes, such as the classical Automotive Open System Architecture (AUTOSAR) domain.
 \item \emph{Event- and time-driven stack}. This hybrid stack combines high-performance safety applications, for example, by supporting ADAS and HAD capability. Applications and peripherals are separated by the operating system, while applications are scheduled on a time base. Inside an application, scheduling of resources can be based on time or priority. The operating environment ensures that safety-critical applications run on isolated containers with clear separation from other applications within the car. A current example is adaptive AUTOSAR.
-\item \emph{Event-driven stack}.This stack centers on the infotainment system, which is not safety critical. The applications are clearly separated from the peripherals, and resources are scheduled using best-effort or event-based scheduling. The stack contains visible and highly used functions that allow the user to interact with the vehicle, such as Android, Automotive Grade Linux, GENIVI, and QNX.
+\item \emph{Event-driven stack}. This stack centers on the infotainment system, which is not safety critical. The applications are clearly separated from the peripherals, and resources are scheduled using best-effort or event-based scheduling. The stack contains visible and highly used functions that allow the user to interact with the vehicle, such as Android, Automotive Grade Linux, GENIVI, and QNX.
 \item \emph{Cloud-based (off-board) stack}. The final stack covers and coordinates access to car data and functions from outside the car. The stack is responsible for communication, as well as safety and security checks of applications (authentication), and it establishes a defined car interface, including remote diagnostics.
 \end{itemize}
 
@@ -83,25 +108,37 @@ the following four stacks could become the basis for upcoming generations of car
 Bla bla bla
 
 
-\section {Principes de la s\'ecurit\'e informatique}
+\section {Cyber-security principles}
 \medskip
-{\Huge L}a s\'ecurit\'e informatique est construite sur 3 piliers (CIA triad).
-  
+{\Huge C}yber-security is build on 3 pillars; the CIA triad.
+
+
+The security goal is to provide safetymeasures to achieve the confidentiality, integrity, and availability (CIA) triad for protection of the overall system along with its peripherals. The triad CIA is as follows:
 \begin{itemize}
-\setlength\itemsep{1em}
-\item La \emph{confidentialit\'e}. L'objectif consiste \'a \'eviter la divulgation d'informations sensibles et/ou de prot\'eger les acc\`es non authoris\'es ressources sensibles. Autrement dit, la confidentialit\'e implique la protection des donn\'ees (resp. ressources), en donnant acc\`es \`a ceux qui sont autoris\'es \`a les lire (resp. \`a les utiliser) tout en interdisant aux autres d'apprendre quoi que ce soit sur son contenu (ou son existence).  
-\item L'\emph{int\'egrit\'e}. L'objectif est de prot\'eger ou de minimiser les modifications non authoris\'ees de donn\'ees et/ou ressources sensibles. Autrement dit, l'int\'egrit\'e implique de pr\'eserver le contenu des donn\'ees et de d\'etecter si une donn\'ee ou une ressource a \'et\'e alt\'er\'ee depuis sa derni\'ere \'ecriture par une personne authoris\'ee.  
-\item La \emph{disponibilit\'e}. L'objectif est de maintenir le syst\`eme op\'erationel pour rendre le service aux l'utilisateurs.  
+    \setlength\itemsep{1em}
+    \item \emph{Confidentiality}: The aim of confidentiality is to protect the critical information from unauthorized users. Confidentiality for network security ensures that the critical assets are accessible only to authorize users.
+    \item \emph{Integrity}: This ensures that unauthorized users do not modify or manipulate the data or information during their network transmission.
+    \item \emph{Availability}: The availability is the last component of the CIA triad that represents the real availability of our information. Authentication methods, channel access, and systems all have to function efficiently to prevent the data and make sure that it is available when required. In short, the availability aims to ensure that data and network resources are available when requested by the authorized users.    
 \end{itemize}
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
     \includegraphics[scale=1.0]{CIA-triad}
-    \caption{Les pilers de la s\'ecurit\'e informatique}
+    \caption{3 pillars of the security}
     \label{fig:CIA}
 \end{figure}
 \FloatBarrier
+
+Besides the CIA triad, Identification, Authentication, Authorization, Auditing and Accounting (called AAAA) also play an important role for controlling the access to the system resources. The AAAA is a term for controlling the access to the system resources, auditing usage, enforcing policies, and offering the details need to charge for services.
+\begin{itemize}
+    \setlength\itemsep{1em}
+    \item \emph{Identification}: Identification aims of claiming to be an identity when attempting to access a resource. Providing an identity can involve typing or sending a username or an ID, swiping a smart card, waving a proximity device $\ldots$. Without an identity the system has no way to correlate an authentication factor to the subject. 
+    \item \emph{Authentication}: Authentication is about proving that you are that claimed identity. It requires the subject to provide additional information that correspond to the identity that is claimed. The most common form is to provide a password. Authentication verifies the identity of the subject by comparing one or more factors against the database of valid identities.
+    \item \emph{Authorization}: Authorization is defining the permissions of a resource/object access for a specific identity. It ensures that the access to a resource/object is given the right and privileges assigned to the authenticated identity. If the requested action is allowed, the subject is authorized, instead the subject is denied. It is not because a subject is correctly authenticated that he/she has the right to perform any actions on any resource.
+    \item \emph{Auditing}: Auditing is recording a log of events and activities related to the system, subjects and objects. It purposes to track and record all subject requests and actions. Log files provide an audit trail for re-creating the history of events. It permits to detect malicious actions, system failures but also system performances
+    \item \emph{Accounting}: Accountability aims to reviewing the log files to check for compliance or violation of security policy in order to hold the subject accountable of his/her/its actions. It is also a way of evaluating what services have been used and how many resources have been consumed.
+\end{itemize}
 
 
 Les principales techniques utilis\'ees pour garantir ces 3 propri\'et\'es sont:
@@ -126,7 +163,7 @@ Les principales techniques utilis\'ees pour garantir ces 3 propri\'et\'es sont:
 
 
 \FloatBarrier
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \begin{tabular}{| l | c | c | c |}
 \hline
