@@ -11,39 +11,37 @@
 \section {The software revolution}
 \medskip
 {\Huge E}mbedded software is one of the key innovation in the automotive world. From the paper of
- Robert Charette (\cite{Cha2009}) published in IEEE Spectrum, the first car embedding a software was the Oldsmobile Toronado from General Motors in 1977. The Toronado 
-
- 
- la premi\`ere voiture embarquant un logiciel \'etait la Oldsmobile Toronado de General Motors en 1977. La Toronado avait une unit\'e de contr\^ole \'electronique (ECU) qui g\'erait la synchronisation de l'allumage des bougies (spark timing). En 1978, General Motors proposait, en option sur ses Cadillacs, un ordinateur de bord qui pouvait afficher la vitesse, le niveau du r\'eservoir d'essence, les informations sur l'\'etat du v\'ehicule. Ce logiciel s'ex\'ecutait sur une version modifi\'ee du processeur Motorola 6802 et faisait 50.000 lignes de code. Depuis, de plus en plus de fonctions ont \'et\'e r\'ealis\'ees par du logiciel. Afin de limiter le nombre de c\^ables dans une voiture, les capteurs ont \'et\'e d\'ecentralis\'es et connect\'es \`a un r\'eseau interne (r\'eseau CAN). Le logiciel a \'egalement permis de cr\'eer de nouvelles fonctions pour les voitures. \\
-Une voiture actuelle est maintenant devenue une plate-forme logiciel sur roues. Une voiture grand public contient entre 30 et 50 unit\'es de contr\^ole \'electronique effectuant la gestion de multiples syst\`emes (voir \ref{tab:soft}).
+ Robert Charette (\cite{Cha2009}) published in IEEE Spectrum, the first car embedding a software was the Oldsmobile Toronado from General Motors in 1977. The Toronado enclosed an Electronic Control Unit (ECU) which managed the spark timing. In 1978, General Motors offered on the Cadillac Seville as an option a trip computer able to display the speed, the fuel level, trip and engine information. This product was based on a embedded version of a Motorola 6802 and had about 50,000 lines of code. Since, more and more functions are performed by software in a car. To limit the volume of cable in a car, all the sensors and on-board unit are now connected to a network backbone using CAN or xxx network. As the computing power of the processor grows, new functions appear in cars. Cars become now on-wheel software platform like airplanes or trains. In a modern family car embeds between 30 and 50 ECUs performing the management of the multiple systems(see \ref{tab:soft}). A premium car can have up to 3,000 singular functions performed by software.   
 
 \FloatBarrier
 \begin{table}
 \centering
 \begin{tabular}{| l | l | l |}
 \hline
-Air bag & ABS & Syst\`eme d'alarme \\
+Airbag & ABS & Anti-thief system \\
 \hline
-La climatisation & Le r\'egulateur de vitesse & Le r\'egime moteur \\
+Air Conditioning & Speed control & motor management \\
 \hline
-Les clignotants & Les feux & Le klaxon \\
+Turn signals & Headlights & Klaxon \\
 \hline
-La gestion des si\`eges & Le syst\`eme de navigation & Le syst\`eme audio \\
+Seat management & Navigation system & Audio system\\
 \hline
-La pression des pneus & La gestion des portes et vitres & ... \\
+Wheel pressure & management of the doors and windows & ... \\
 \hline
 \end{tabular}
-\caption{Syst\`eme logiciel dans une voiture}
+\caption{Software function in a car}
 \label{tab:soft}
 \end{table}
 \FloatBarrier
 
 
-En 2009, Alfred Katzenbach, le directeur des Technologies Informatique Chez Daimler, a annon\c c\'e que le syst\`eme navigation et audio sur une Mercedes-Benz  S-class contient plus 20 millions de lignes de code et que la voiture contienait pratiquement autant d'unit\'e \'electronique qu'un Airbus A380 (si on exclut le syst\`eme de divertissement en vol) (\cite{Cha09}).  Les logiciels dans une voiture grossissent \`a une vitesse exponentielle en taille et en complexit\'e. En 2010, certaines voitures avaient 10 millions de lignes de code. En dix ans, le volume du logiciel a augment\'e par un facteur 15, pour environ 150 millions de lignes. Aujourd'hui, le Model S de Tesla est \'equip\'ee d'un \'ecran tactile de 17 pouces bas\'e sur un syst\`eme d'exploitation Linux qui contr\^ole quasiment toute les fonctions utilisateurs de la voiture. En fait, il n'y a plus que 2 boutons manuel non g\'er\'es par du logiciel sur un Model S; le bouton pour les feux de d\'etresse et le bouton de la bo\^ite \`a gants. \\
+In 2009, Alfred Katzenbach, Director of Information Technology Management at Daimler announced that the radio and navigation management system of a S-class Mercedes-Bens contains over 20 millions line of code and the car embeds nearly as many ECUs as an Airbus A380 (excluding the in-flight entertainment system) (\cite{Cha09}). Software in a car has an exponential growth in size and complexity. In just 10 years, the software volume in a car expands by a factor 10, to arrive at around 150 million of lines of code. A model S from Tesla is equipped with a 17' tactical display based on a Linux kernel which controls almost every driver functions. In fact, there is only 2 manual buttons not management by software in the car, the blinker and the glove's compartment.
 
-Un effet secondaire est sur la complexit\'e des fonctions propos\'ees aux conducteurs. Il n'est pas rare que les manuels utilisateurs des voitures fassent maintenant plus de 500 pages pour expliquer l'ensemble des fonctions logiciel. D'un autre c\^ot\'e, on estime qu'un conducteur moyen n'utilise pas plus de 20\% des fonctions impl\'ement\'ees par du logiciel. Les constructeurs automobiles commencent \`a se poser la question sur une limitation des fonctions r\'ealis\'ees par du logiciel. Par exemple, est-il vraiment n\'ecessaire que la lumi\`ere du plafonnier d'une voiture s'\'eteigne de fa\c con progressive?\\
 
-L'augmentation du logiciel a \'egalement d'importantes cons\'equences sur la fa\c con d'entretenir et de r\'eparer une voiture. On estime que plus de 50\% des unit\'es \'electroniques remplac\'ees n'ont pas d'erreur (logiciel ou mat\'eriel). Le garagiste remplace fr\'equemment une pi\`ece car il ne sait pas quelle est la cause principales de la panne. La principale activit\'e des garagiste consiste \`a t\'e\'echarger les nouvelles versions du logiciel. Sur les voitures Tesla, les mises \`a jour logiciel, qui incluent les corrections du logiciel et les nouvelles fonctionnalit\'es sont t\'el\'echarg\'ees dans la voiture via le r\'eseau cellulaire sans intervention d'un garagiste.\\  
+A side effect of this revolution is the complexity and the richness of the functions proposed to the driver. It is frequent to have the driver manual of a car with over 500 pages to explain all the driver functions. On the other side, we estimate that an average driver uses not more than 20\% of those functions. Some automotive manufacturers are asking them the question of a limitation of the software functions proposed in a car. For example, is it really necessary to have the ceiling light of a car going out gradually?\\
+
+The growth of the software in a car has also important consequences on the way to maintain and repair a car. An estimation gives that more than 50\% of the ECU that are changed by a car mechanic have no software of hardware failure. Mechanic frequently replaces pieces without the knowledge of the root cause of the issue. Now, one of the most frequent activity of a car mechanic is to download and upgrade new version of software. Some car manufacturer, like Tesla proposes to download software updates, including software corrections or new functionalities, using the cellular network without any involvement of a car mechanic.
+
 
 Aujourd'hui, le co\^ut du logiciel et de l'\'electronique repr\'esente entre 35 \`a 40\% du co\^ut d'une voiture. \\
 
