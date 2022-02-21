@@ -7,10 +7,14 @@
 \usepackage{amsfonts,amssymb}
 \usepackage{pifont}
 \usepackage{psfrag}
+\usepackage[french]{babel}
 \usepackage{placeins}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,amsxtra}
+\usepackage{diagbox}
 
 \usepackage{graphicx}
 \graphicspath{ {Images/} }
+
 
 \usepackage{caption}
 \usepackage{subcaption}
@@ -32,12 +36,19 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[chapter]
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}[chapter]
+\newtheorem{tbd}{Todo list}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\R}{\bb{R}}
+
 
 \usepackage[style=authoryear,sorting=ynt]{biblatex}
 \addbibresource{./references.bib}
-
-
-\newtheorem{tbd}{Todo list}
 
 
 \title{C'est ma th\`ese}
@@ -46,7 +57,7 @@
 
 \begin{document}
 
-\input{Sections/2_securite}
+\input{Sections/4_resilience}
 
 
 \end{document}

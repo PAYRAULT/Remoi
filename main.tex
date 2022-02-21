@@ -7,7 +7,6 @@
 \usepackage{amsfonts,amssymb}
 \usepackage{pifont}
 \usepackage{psfrag}
-\usepackage[french]{babel}
 \usepackage{placeins}
 \usepackage{amsmath,amsthm,amssymb,amsfonts,amsxtra}
 \usepackage{diagbox}
@@ -23,13 +22,16 @@
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
 \usepackage{fancyhdr}
 
+\usepackage[acronym,nonumberlist]{glossaries}
+\input{glossary}
+
 \pagestyle{fancy}
 \fancyhead{}
-\fancyhead[RO,LE]{Thesis Title}
+\fancyhead[RO,LE]{Vie amoureuse des t\'etards \`a Ph7}
 \fancyfoot{}
 \fancyfoot[LE,RO]{\thepage}
 \fancyfoot[LO,CE]{Chapter \thechapter}
-\fancyfoot[CO,RE]{Author Name}
+\fancyfoot[CO,RE]{Maximouth}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
@@ -71,9 +73,6 @@ Je remercie Jean-Do pour ces conseils avis\'es.....
 \listoftables
 
 
-%% Input le glossaire
-\newpage
-\input{glossaire}
 \thispagestyle{empty}
 
 \input{Sections/1_introduction}
@@ -86,10 +85,16 @@ Je remercie Jean-Do pour ces conseils avis\'es.....
 
 \input{Sections/5_conclusion}
 
-\pagestyle{empty}
-\printbibliography
-\newpage
+%\pagestyle{empty}
+\clearpage
+\printglossary[type=\acronymtype]
 
+\printglossary
+
+\newpage
+\printbibliography
+
+\newpage
 \appendix
 \input{Sections/A1_appendice}
 

@@ -11,7 +11,7 @@
 \section {The software revolution}
 \medskip
 {\Huge E}mbedded software is one of the key innovation in the automotive world. From the paper of
- Robert Charette (\cite{Cha2009}) published in IEEE Spectrum, the first car embedding a software was the Oldsmobile Toronado from General Motors in 1977. The Toronado enclosed an Electronic Control Unit (ECU) which managed the spark timing. In 1978, General Motors offered on the Cadillac Seville as an option a trip computer able to display the speed, the fuel level, trip and engine information. This product was based on a embedded version of a Motorola 6802 and had about 50,000 lines of code. Since, more and more functions are performed by software in a car. To limit the volume of cable in a car, all the sensors and on-board unit are now connected to a network backbone using CAN or xxx network. As the computing power of the processor grows, new functions appear in cars. Cars become now on-wheel software platform like airplanes or trains. In a modern family car embeds between 30 and 50 ECUs performing the management of the multiple systems(see \ref{tab:soft}). A premium car can have up to 3,000 singular functions performed by software.   
+ Robert Charette (\cite{Cha2009}) published in IEEE Spectrum, the first car embedding a software was the Oldsmobile Toronado from General Motors in 1977. The Toronado enclosed an \gls{ecu}\@ which managed the spark timing. In 1978, General Motors offered on the Cadillac Seville as an option a trip computer able to display the speed, the fuel level, trip and engine information. This product was based on an embedded version of a Motorola 6802 and had about 50,000 lines of code. Since, more and more functions are performed by software in a car. To limit the volume of cable in a car, all the sensors and on-board unit are now connected to a network backbone using CAN or xxx network. As the computing power of the processor grows, new functions appear in cars. Cars become now on-wheel software platform like airplanes or trains.A modern family car embeds between 30 and 50 ECUs performing the management of the multiple systems(see \ref{tab:soft}). A premium car can have up to 3,000 singular functions performed by software.   
 
 \FloatBarrier
 \begin{table}
@@ -35,25 +35,27 @@ Wheel pressure & management of the doors and windows & ... \\
 \FloatBarrier
 
 
-In 2009, Alfred Katzenbach, Director of Information Technology Management at Daimler announced that the radio and navigation management system of a S-class Mercedes-Bens contains over 20 millions line of code and the car embeds nearly as many ECUs as an Airbus A380 (excluding the in-flight entertainment system) (\cite{Cha2009}). Software in a car has an exponential growth in size and complexity. In just 10 years, the software volume in a car expands by a factor 10, to arrive at around 150 million of lines of code. A model S from Tesla is equipped with a 17' tactical display based on a Linux kernel which controls almost every driver functions. In fact, there is only 2 manual buttons not management by software in the car, the blinker and the glove's compartment.
+In 2009, Alfred Katzenbach, Director of Information Technology Management at Daimler announced that the radio and navigation management system of an S-class Mercedes-Benz contains over 20 millions line of code and the car embeds nearly as many ECUs as an Airbus A380 (excluding the in-flight entertainment system) (\cite{Cha2009}). Software in a car has an exponential growth in size and complexity. In just 10 years, the software volume in a car expands by a factor 10, to arrive at around 150 million of lines of code. A model S from Tesla is equipped with a 17' tactical display based on a Linux kernel which controls almost every driver functions. In fact, there is only 2 manual buttons that are not management by software in the car, the blinker and the glove's compartment.
 
 
-A side effect of this revolution is the complexity and the richness of the functions proposed to the driver. It is frequent to have the driver manual of a car with over 500 pages to explain all the driver functions. On the other side, we estimate that an average driver uses not more than 20\% of those functions. Some automotive manufacturers are asking them the question of a limitation of the software functions proposed in a car. For example, is it really necessary to have the ceiling light of a car going out gradually?\\
+A side effect of this revolution is the complexity and the richness of the functions proposed to the driver. It is frequent to have the driver manual of a car with over 500 pages to explain all the driver functions. Automotive experts estimate that an average driver uses not more than 20\% of those functions. Thus is why, some automotive manufacturers are asking them the question of a limitation (or reduction) of software functions proposed in a car. For example, is it really necessary to have the ceiling light of a car going out gradually when the doors are closing?\\
 
-The growth of the software in a car has also important consequences on the way to maintain and repair a car. An estimation gives that more than 50\% of the ECU that are changed by a car mechanic have no software of hardware failure. Mechanic frequently replaces pieces without the knowledge of the root cause of the issue. Now, one of the most frequent activity of a car mechanic is to download and upgrade new version of software. Some car manufacturer, like Tesla proposes to download software updates, including software corrections or new functionalities, using the cellular network without any involvement of a car mechanic.
-
-
-Aujourd'hui, le co\^ut du logiciel et de l'\'electronique repr\'esente entre 35 \`a 40\% du co\^ut d'une voiture. \\
+The growth of the software in a car has also important consequences on the way to maintain and repair a car. An estimation gives that more than 50\% of the ECU that are changed by a car mechanic have no software or hardware failure. Mechanic frequently replaces pieces without the knowledge of the root cause of the issue. Now, one of the most frequent activity of a car mechanic is to download and upgrade new version of software. Some car manufacturer, like Tesla proposes to download software updates, including software corrections (patches) or new functionalities, using the cellular network without any involvement of a car mechanic.
 
 
-\begin{tbd}
-    Introduire la standardisation avec:
-    Automotive Open System Architecture (AUTOSAR). Une solution pour r\'eduire le co\^ut du logiciel en augmentant l'interop\'erabilit\'e entre les constructeurs.
-    CEI 27272 pour le developpement logiciel
-\end{tbd}
+Today, the cost of the software and the supporting electronic in a car is estimated between 35\% and 40\% of the cost of a car. Investment to develop new software platform became so expensive that the main European Automotive manufacturers develop a series of standards to reduce the developent cost:
+\begin{itemize}
+    \item a commom platform; \emph{Automotive Open System Architecture (AUTOSAR)} \cite{AUTOSAR} allowing there suppliers to develop a single platform interoperable between several manufacturers. 
+    \item a software development framework for the safety; \emph{Road vehicles, Functional Safety package} ISO 26262 \cite{ISO26262}
+    \item and recently a standard to address the cybersecurity management system; \emph{Road vehicles - Cybersecurity engineering} ISO 21434 \cite{ISO21434}.
+\end{itemize}
 
-AUTomotive Open System Architecture (AUTOSAR) was founded in 2003, with the goal to develop an architecture, independent of the underlying ECU hardware that the automotive industry can use to reduce the increasing complexity of software in modern vehicles (\cite{AUTOSAR}). It is the de facto standard for the automotive software today. AUTOSAR makes an abstract layer of the underlying hardware, so that the applications written on top of AUTOSAR are independent from the actual supplier of the ECU hardware. The AUTOSAR standard documentation guides companies and the automotive industry in designing and implementing software in their vehicles. Besides the Software architecture and the Standardized application interfaces (APIs), AUTOSAR provides a Software development methodology. By adopting the AUTOSAR standard, companies can develop software solutions that are independent of the hardware they are running on, and this software can run on any ECU in the vehicle.  
+\section {Modern car software architecture}
 
+\subsection {AUTOSAR}
+
+\gls{autosar}\@ was founded in 2003, with the goal to develop an architecture, independent of the underlying ECU hardware that the automotive industry can use to reduce the increasing complexity of software in modern vehicles (\cite{AUTOSAR}). This is the de facto standard for the automotive software today. AUTOSAR makes an abstract layer of the underlying hardware, so that the applications written on top of AUTOSAR are independent from the actual supplier of the ECU hardware. The AUTOSAR standard documentation guides companies and the automotive industry in designing and implementing software in their vehicles. Besides the Software architecture and the Standardized \gls{api}\@, AUTOSAR provides a Software development methodology. By adopting the AUTOSAR standard, companies can develop software solutions that are independent of the hardware they are running on, and this software can run on any ECU in the vehicle. 
+\bigskip
 
 AUTOSAR is a three-layered architecture (\cite{AUTOSAR_archi}): 
 \begin{itemize}
@@ -78,7 +80,7 @@ The AUTOSAR standard defines security mechanisms that can be used by the softwar
 Introduction of software in the car permits to have safer and less polluting cars but it has open the door at two new risks the \emph{safety risk} and the \emph{cyber-security threat}. 
 
 
-\section {Modern car architecture}
+\subsection {The software stacks}
 
 \begin{tbd}
 Commencer a pr\'esenter les diff\'erentes couches logiciel.\\

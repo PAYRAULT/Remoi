@@ -31,7 +31,7 @@ chap3.pdf: chap3.tex Sections/3_game_theory.tex glossary.tex
 	$(latexmk) -pdf chap3.tex
 
 chap4.pdf: chap4.tex Sections/4_resilience.tex glossary.tex
-	$(latexmk) -pdf chap3.tex  
+	$(latexmk) -pdf chap4.tex  
 
 clean:
 	$(latexmk) -C
