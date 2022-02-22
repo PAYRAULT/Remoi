@@ -50,6 +50,8 @@ Today, the cost of the software and the supporting electronic in a car is estima
     \item and recently a standard to address the cybersecurity management system; \emph{Road vehicles - Cybersecurity engineering} ISO 21434 \cite{ISO21434}.
 \end{itemize}
 
+Introduction of software in the car permits to have safer and less polluting cars but it has open the door at two new risks the \emph{software safety risk} and the \emph{cyber-security threat}. 
+
 \section {Modern car software architecture}
 
 \subsection {AUTOSAR}
@@ -77,7 +79,18 @@ Each of the sublayers offers different services as shown in \ref{fig:AUTOSAR_arc
 The AUTOSAR standard defines security mechanisms that can be used by the software modules implemented into the vehicle system. It further specifies interfaces and procedures to provide Secure On-Board Communication, and the exact implementation is left for the OEMs to decide on. OEMs choose the cryptographic algorithms and encryption techniques which they want to implement and use in the vehicle system.
 
 
-Introduction of software in the car permits to have safer and less polluting cars but it has open the door at two new risks the \emph{safety risk} and the \emph{cyber-security threat}. 
+AUTOSAR has been mainly build to ensure a high level of Safety of the system. Many safety mitigations requested by the standard can be attack vectors. For example (see \cite{Nas2017}), to protect the internal and external communication, AUTOSAR defines the \Gls{ete}\@ library which defines the safety mitigations to prevent safety critical functions from operating on faulty or missing data. The mitigations are:
+\begin{itemize}
+    \item \Gls{crc} check to detect corruption of data
+    \item Sequence counter to detect out of sequence messages and to osrt the messages
+    \item Alive counter to prevent operating on old data
+    \item A unique ID for Interaction Layer Protocol Data Unit (I-PDU) group to detect a fault of sending I-PDU on unintended message
+    \item Timeout monitoring to detect communication loss with the sender.
+\end{itemize}
+
+Attack based on those mitigations will lead to a rejection of the messages and a potential \Gls{dos}\@. No mechanism has been provided to detect the difference betwwen a non-malicious errors in the content of a message and an attack.
+
+
 
 
 \subsection {The software stacks}
